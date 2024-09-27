@@ -1,4 +1,4 @@
-package com.colak.springjpatutorial.jpa;
+package com.colak.springtutorial.jpa;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,7 +12,7 @@ import org.hibernate.annotations.Formula;
 @Entity
 @Getter
 @Setter
-public class AuthorFormula {
+public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", updatable = false, nullable = false)
