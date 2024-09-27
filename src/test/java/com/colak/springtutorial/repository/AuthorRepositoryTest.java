@@ -14,15 +14,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 class AuthorRepositoryTest {
 
     @Autowired
-    private AuthorFormulaRepository authorFormulaRepository;
+    private AuthorRepository authorRepository;
 
     @Test
     void testFormula() {
         Author author = new Author();
         author.setAge(40);
-        Author savedAuthor = authorFormulaRepository.saveAndFlush(author);
+        Author savedAuthor = authorRepository.saveAndFlush(author);
 
-        Optional<Author> optionalAuthorFormula = authorFormulaRepository.findById(savedAuthor.getId());
+        Optional<Author> optionalAuthorFormula = authorRepository.findById(savedAuthor.getId());
         assertThat(optionalAuthorFormula).isPresent();
 
         Author byId = optionalAuthorFormula.get();
