@@ -14,18 +14,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 class AuthorRepositoryTest {
 
     @Autowired
-    private AuthorRepository authorRepository;
+    private AuthorRepository repository;
 
     @Test
     void testFormula() {
         Author author = new Author();
         author.setAge(40);
-        Author savedAuthor = authorRepository.saveAndFlush(author);
+        Author savedAuthor = repository.saveAndFlush(author);
 
-        Optional<Author> optionalAuthorFormula = authorRepository.findById(savedAuthor.getId());
-        assertThat(optionalAuthorFormula).isPresent();
+        Optional<Author> optionalAuthor = repository.findById(savedAuthor.getId());
+        assertThat(optionalAuthor).isPresent();
 
-        Author byId = optionalAuthorFormula.get();
+        Author byId = optionalAuthor.get();
         assertThat(byId.getTenAge()).isEqualTo(400);
     }
 }
